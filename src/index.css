@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@600;800;900&family=Noto+Sans+JP:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  /* Color Scheme based on Cherry Blossom & Japan Guide */
+  --sakura-pink: #F7C8D8;
+  --deep-rose: #D36B8F;
+  --torii-black: #1A1A1F;
+  --temple-cream: #F5E9E2;
+  --misty-gray: #A7A1AA;
+  
+  --blush-pink: #FBD7E1;
+  --rose-red: #C94F6D;
+  --deep-plum: #6B2E3B;
+  --ivory: #FAF6F2;
+  --charcoal: #2B2B32;
+  --torii-orange: #FF5E36;
+  --gold-accent: #F5A623;
+
+  /* Gradients */
+  --grad-sakura-dawn: linear-gradient(135deg, #FBD7E1 0%, #D36B8F 100%);
+  --grad-evening-bloom: linear-gradient(135deg, #D36B8F 0%, #6B2E3B 100%);
+  --grad-misty-temple: linear-gradient(135deg, #FAF6F2 0%, #A7A1AA 100%);
+  --grad-torii-fire: linear-gradient(135deg, #FF7A00 0%, #FF3D3D 100%);
+  --grad-dark-surface: linear-gradient(180deg, rgba(32, 28, 36, 0.95) 0%, rgba(20, 18, 24, 0.98) 100%);
+  --grad-glass-card: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
+
+  /* Typography */
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-accent: 'Cinzel', serif;
+  --font-jp: 'Noto Sans JP', sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Shadows */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+  --shadow-sakura: 0 8px 30px rgba(211, 107, 143, 0.25);
+  --shadow-orange: 0 8px 30px rgba(255, 94, 54, 0.3);
+
+  /* Borders */
+  --border-subtle: 1px solid rgba(247, 200, 216, 0.15);
+  --border-glow: 1px solid rgba(211, 107, 143, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--torii-black);
+  color: var(--ivory);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #141318;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--deep-rose), var(--torii-orange));
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sakura-pink);
+}
+
+/* Typography styles */
+h1, h2, h3, .heading-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+}
+
+.font-jp {
+  font-family: var(--font-jp);
+}
+
+.font-accent {
+  font-family: var(--font-accent);
+}
+
+/* Utility Containers */
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(26, 26, 31, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: var(--border-subtle);
+  border-radius: 16px;
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.01) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(247, 200, 216, 0.12);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(211, 107, 143, 0.45);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-sakura);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 12px 26px;
+  border-radius: 12px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #FF6633 0%, #FF385C 100%);
+  color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(255, 80, 60, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(255, 80, 60, 0.5);
+  filter: brightness(1.1);
+}
+
+.btn-sakura {
+  background: linear-gradient(135deg, var(--deep-rose) 0%, var(--deep-plum) 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(247, 200, 216, 0.3);
+  box-shadow: var(--shadow-sakura);
+}
+
+.btn-sakura:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.15);
+  box-shadow: 0 10px 30px rgba(211, 107, 143, 0.4);
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--temple-cream);
+  border: 1px solid rgba(247, 200, 216, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+.btn-outline:hover {
+  background: rgba(247, 200, 216, 0.15);
+  border-color: var(--sakura-pink);
+  color: #FFF;
+  transform: translateY(-2px);
+}
+
+/* Badge tags */
+.badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: rgba(211, 107, 143, 0.15);
+  border: 1px solid rgba(211, 107, 143, 0.35);
+  color: var(--blush-pink);
+}
+
+/* Japanese Seigaiha Pattern overlay */
+.seigaiha-bg {
+  background-image: radial-gradient(circle at 50% 100%, rgba(211, 107, 143, 0.05) 15%, transparent 16%),
+                    radial-gradient(circle at 50% 100%, rgba(211, 107, 143, 0.05) 35%, transparent 36%),
+                    radial-gradient(circle at 50% 100%, rgba(211, 107, 143, 0.05) 55%, transparent 56%);
+  background-size: 40px 20px;
+}
+
+/* Falling sakura petal particles */
+.sakura-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 50;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.03); }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+/* Responsive Navigation Utilities */
+@media (min-width: 992px) {
+  .desktop-nav {
+    display: block !important;
+  }
+  .mobile-toggle {
+    display: none !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .mobile-toggle {
+    display: block !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .hidden.sm\:inline {
+    display: none;
+  }
+}
+
